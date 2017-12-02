@@ -4,7 +4,7 @@ import cors from "cors";
 import logger from './core/logger/app-logger'
 import morgan from 'morgan'
 import config from './core/config/config.dev'
-import cars from './routes/cars.route'
+import movie from './routes/movie.route'
 import connectToDb from './db/connect'
 
 const port = config.serverPort;
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev", { "stream": logger.stream }));
 
-app.use('/cars', cars);
+app.use('/movies', movie);
 
 //Index route
 app.get('/', (req, res) => {
