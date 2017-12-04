@@ -11,6 +11,10 @@ MovieModel.getMovies = () => {
     return MovieModel.find({}, { title: 1, year: 1 });
 }
 
+MovieModel.getMovieById = (movieId) => {
+    return MovieModel.find({ _id: movieId });
+}
+
 MovieModel.addMovie = (movie) => {
     return movie.save();
 }

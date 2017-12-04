@@ -15,8 +15,21 @@ controller.getMovies = async (req, res) => {
     }
 }
 
+controller.getMovieById = async (req, res) => {
+    const movieId = req.params._id;
+    try {
+        const movie = await Movie.getMovieById(movieId);
+        logger.info('Getting movie with id ' + movieId);
+        res.send(movie);
+    }
+    catch(err) {
+        logger.error('Error in getting movie - ' + err);
+        res.send('Get error in getMovieById');
+    }
+}
+
 controller.addMovie = async (req, res) => {
-    let movieToAdd = Movie({
+    const movieToAdd = Movie({
         title: req.body.title,
         year: req.body.year
     });
@@ -32,7 +45,7 @@ controller.addMovie = async (req, res) => {
 }
 
 controller.deleteMovie = async (req, res) => {
-  let movieId = req.body._id;
+    const movieId = req.body._id;
     try {
         const deletedMovie = await Movie.deleteMovie(movieId);
         logger.info('Deleted movie - ' + deletedMovie);

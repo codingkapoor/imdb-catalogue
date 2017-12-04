@@ -6,6 +6,10 @@ router.get('/', (req, res) => {
     movieController.getMovies(req, res);
 });
 
+router.get('/:_id', (req, res) => {
+    movieController.getMovieById(req, res);
+});
+
 router.post('/', (req, res) => {
     movieController.addMovie(req, res);
 });
