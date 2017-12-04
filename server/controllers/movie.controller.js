@@ -32,7 +32,7 @@ controller.addMovie = async (req, res) => {
 }
 
 controller.deleteMovie = async (req, res) => {
-  let movieId = req.body.id;
+  let movieId = req.body._id;
     try {
         const deletedMovie = await Movie.deleteMovie(movieId);
         logger.info('Deleted movie - ' + deletedMovie);
