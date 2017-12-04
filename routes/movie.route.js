@@ -2,15 +2,15 @@ import express from "express";
 import movieController from "../controllers/movie.controller"
 const router = express.Router()
 
-router.get('/allmovies', (req, res) => {
-    movieController.getAll(req, res);
+router.get('/', (req, res) => {
+    movieController.getMovies(req, res);
 });
 
-router.post('/addmovie', (req, res) => {
+router.post('/', (req, res) => {
     movieController.addMovie(req, res);
 });
 
-router.delete('/deletemovie', (req, res) => {
+router.delete('/', (req, res) => {
     movieController.deleteMovie(req, res);
 });
 

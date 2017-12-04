@@ -5,16 +5,15 @@ import logger from './core/logger/app-logger'
 import morgan from 'morgan'
 import config from './core/config/config.dev'
 import movie from './routes/movie.route'
-import connectToDb from './db/connect'
+import connectToDB from './db/connect'
 
-const port = config.serverPort;
 logger.stream = {
-    write: function(message, encoding){
+    write: function(message, encoding) {
         logger.info(message);
     }
 };
 
-connectToDb();
+connectToDB();
 
 const app = express();
 app.use(cors());
@@ -24,11 +23,11 @@ app.use(morgan("dev", { "stream": logger.stream }));
 
 app.use('/movies', movie);
 
-//Index route
-app.get('/', (req, res) => {
-    res.send('Invalid endpoint!');
+app.use((req, res) => {
+    res.sendStatus(404);
 });
 
+const port = config.serverPort;
 app.listen(port, () => {
     logger.info('server started - ', port);
 });

@@ -4,7 +4,7 @@ import config from '../core/config/config.dev'
 
 Mongoose.Promise = global.Promise;
 
-const connectToDb = async () => {
+const connectToDB = async () => {
     let dbHost = config.dbHost;
     let dbPort = config.dbPort;
     let dbName = config.dbName;
@@ -17,4 +17,4 @@ const connectToDb = async () => {
     }
 }
 
-export default connectToDb;
+export default connectToDB;
