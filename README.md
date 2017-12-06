@@ -5,8 +5,8 @@ Starter Boilerplates used for this application: [express-es6-starter](https://gi
 ## TODO
 
 ### Index Page
-[] - Cards
-[] - Search Box
-[] - Pagination
+- [ ] Cards
+- [ ] Search Box
+- [ ] Pagination
 
 ### Details Page
