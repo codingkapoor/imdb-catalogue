@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardColumns } from 'reactstrap';
+
 import { getMovies } from '../actions';
 
 class MoviesIndex extends Component {
@@ -12,21 +14,24 @@ class MoviesIndex extends Component {
     renderMovies() {
         return _.map(this.props.movies, movie => {
             return (
-                <li className="list-group-item" key={ movie._id }>
-                    { movie.title }
-                </li>
+                <Card key={ movie._id }>
+                    <CardImg top width="50%" height="400px" src={ movie.poster } alt="Movie Poster" />
+                    <CardBody>
+                        <CardTitle>{ movie.title }</CardTitle>
+                        <CardSubtitle>{ movie.year }</CardSubtitle>
+                        <CardText>{ movie.plot }</CardText>
+                        <Button>View More</Button>
+                    </CardBody>
+                </Card>
             );
         });
     }
 
     render() {
         return (
-            <div>
-                <h3>Movies</h3>
-                <ul className="list-group">
-                    { this.renderMovies() }
-                </ul>
-            </div>
+            <CardColumns>
+                { this.renderMovies() }
+            </CardColumns>
         );
     }
 }

@@ -8,7 +8,7 @@ const MovieSchema = mongoose.Schema({
 let MovieModel = mongoose.model('movieDetails', MovieSchema);
 
 MovieModel.getMovies = () => {
-    return MovieModel.find({}, { title: 1, year: 1 });
+    return MovieModel.find({"poster": { $ne: null }}, { title: 1, year: 1, poster: 1, plot: 1 }).limit(20);
 }
 
 MovieModel.getMovieById = (movieId) => {
