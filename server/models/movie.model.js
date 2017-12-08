@@ -1,26 +1,31 @@
 import mongoose from 'mongoose';
+import MongoosePaginate from 'mongoose-paginate';
+
+let Movie = () => {}
 
 const MovieSchema = mongoose.Schema({
     title: { type: String, required: true },
     year: { type: Number, required: true }
   }, {collection : 'movieDetails'});
 
+MovieSchema.plugin(MongoosePaginate);
+
 let MovieModel = mongoose.model('movieDetails', MovieSchema);
 
-MovieModel.getMovies = () => {
-    return MovieModel.find({"poster": { $ne: null }}, { title: 1, year: 1, poster: 1, plot: 1 }).limit(20);
+Movie.prototype.getMovies = (page) => {
+    return MovieModel.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
 }
 
-MovieModel.getMovieById = (movieId) => {
+Movie.prototype.getMovieById = (movieId) => {
     return MovieModel.find({ _id: movieId });
 }
 
-MovieModel.addMovie = (movie) => {
+Movie.prototype.addMovie = (movie) => {
     return movie.save();
 }
 
-MovieModel.deleteMovie = (movieId) => {
+Movie.prototype.deleteMovie = (movieId) => {
     return MovieModel.remove({ _id: movieId });
 }
 
-export default MovieModel;
+export default new Movie();
