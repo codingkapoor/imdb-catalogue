@@ -8,25 +8,25 @@ const MovieSchema = mongoose.Schema({
 
 MovieSchema.plugin(MongoosePaginate);
 
-const MovieModel = mongoose.model('movieDetails', MovieSchema);
+const model = mongoose.model('movieDetails', MovieSchema);
 
 
-const Movie = {};
+const MovieModel = {};
 
-Movie.getMovies = (page) => {
-    return MovieModel.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
+MovieModel.getMovies = (page) => {
+    return model.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
 }
 
-Movie.getMovieById = (movieId) => {
-    return MovieModel.find({ _id: movieId });
+MovieModel.getMovieById = (movieId) => {
+    return model.find({ _id: movieId });
 }
 
-Movie.addMovie = (movie) => {
-    return MovieModel.save();
+MovieModel.addMovie = (movie) => {
+    return model.save();
 }
 
-Movie.deleteMovie = (movieId) => {
-    return MovieModel.remove({ _id: movieId });
+MovieModel.deleteMovie = (movieId) => {
+    return model.remove({ _id: movieId });
 }
 
-export default Movie;
+export default MovieModel;
