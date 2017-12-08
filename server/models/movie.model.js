@@ -1,34 +1,32 @@
 import mongoose from 'mongoose';
 import MongoosePaginate from 'mongoose-paginate';
 
-class Movie {
+const MovieSchema = mongoose.Schema({
+    title: { type: String, required: true },
+    year: { type: Number, required: true }
+  }, {collection : 'movieDetails'});
 
-    constructor () {
-        const MovieSchema = mongoose.Schema({
-            title: { type: String, required: true },
-            year: { type: Number, required: true }
-          }, {collection : 'movieDetails'});
+MovieSchema.plugin(MongoosePaginate);
 
-        MovieSchema.plugin(MongoosePaginate);
+const MovieModel = mongoose.model('movieDetails', MovieSchema);
 
-        this.MovieModel = mongoose.model('movieDetails', MovieSchema);
-    }
 
-    getMovies = (page) => {
-        return this.MovieModel.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
-    }
+const Movie = {};
 
-    getMovieById = (movieId) => {
-        return this.MovieModel.find({ _id: movieId });
-    }
-
-    addMovie = (movie) => {
-        return this.MovieModel.save();
-    }
-
-    deleteMovie = (movieId) => {
-        return this.MovieModel.remove({ _id: movieId });
-    }
+Movie.getMovies = (page) => {
+    return MovieModel.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
 }
 
-export default new Movie();
+Movie.getMovieById = (movieId) => {
+    return MovieModel.find({ _id: movieId });
+}
+
+Movie.addMovie = (movie) => {
+    return MovieModel.save();
+}
+
+Movie.deleteMovie = (movieId) => {
+    return MovieModel.remove({ _id: movieId });
+}
+
+export default Movie;
