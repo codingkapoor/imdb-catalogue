@@ -9,7 +9,6 @@ controller.getMovies = (req, res) => {
         page = req.query.page;
 
     try {
-        console.log(Movie);
         Movie.getMovies(page).then(movies => {
             logger.info('Getting all movies...');
             res.send(movies);
@@ -49,7 +48,7 @@ controller.addMovie = (req, res) => {
     }
 }
 
-controller.deleteMovie = async (req, res) => {
+controller.deleteMovie = (req, res) => {
     const movieId = req.body._id;
     try {
         Movie.deleteMovie(movieId).then(deletedMovie => {
