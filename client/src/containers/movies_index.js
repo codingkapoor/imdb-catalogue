@@ -37,7 +37,10 @@ class MoviesIndex extends Component {
 }
 
 function mapStateToProps(state) {
-    return { movies: state.movies };
+    return {
+        movies: state.moviesPerPage.movies,
+        hasMoreItems: state.moviesPerPage.hasMoreItems
+    };
 }
 
 export default connect (mapStateToProps, { getMovies })(MoviesIndex);
