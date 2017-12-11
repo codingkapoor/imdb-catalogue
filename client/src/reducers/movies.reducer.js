@@ -1,17 +1,17 @@
 import _ from 'lodash';
 import { GET_MOVIES } from '../actions';
 
-export default function(state = {}, action) {
+export default function(state = { movies: {}, hasMoreMovies: false }, action) {
     switch (action.type) {
         case GET_MOVIES:
-            let hasMoreItems = false;
+            let hasMoreMovies = false;
             if(action.payload.data.docs.length == 0)
-                hasMoreItems = false;
-            else hasMoreItems = true;
+                hasMoreMovies = false;
+            else hasMoreMovies = true;
 
             return {
-                movies: _.mapKeys(action.payload.data.docs, '_id'),
-                hasMoreItems: hasMoreItems
+                movies: { ...state.movies, ..._.mapKeys(action.payload.data.docs, '_id') },
+                hasMoreMovies: hasMoreMovies
             };
         default:
             return state;

@@ -2,13 +2,22 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardColumns } from 'reactstrap';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import { getMovies } from '../actions';
 
 class MoviesIndex extends Component {
+    constructor() {
+        super();
+        this.loadMovies = this.loadMovies.bind(this);
+    }
 
     componentDidMount() {
-        this.props.getMovies(1);
+        this.loadMovies(1);
+    }
+
+    loadMovies(page) {
+        this.props.getMovies(page);
     }
 
     renderMovies() {
@@ -28,10 +37,19 @@ class MoviesIndex extends Component {
     }
 
     render() {
+        const loader = <div className="loader">Loading ...</div>;
+
         return (
-            <CardColumns>
-                { this.renderMovies() }
-            </CardColumns>
+            <InfiniteScroll
+                pageStart={ 0 }
+                loadMore={ this.loadMovies }
+                hasMore={ this.props.hasMoreMovies }
+                loader={ loader }>
+
+                <CardColumns>
+                    { this.renderMovies() }
+                </CardColumns>
+            </InfiniteScroll>
         );
     }
 }
@@ -39,7 +57,7 @@ class MoviesIndex extends Component {
 function mapStateToProps(state) {
     return {
         movies: state.moviesPerPage.movies,
-        hasMoreItems: state.moviesPerPage.hasMoreItems
+        hasMoreMovies: state.moviesPerPage.hasMoreMovies
     };
 }
 
