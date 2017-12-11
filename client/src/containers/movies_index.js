@@ -24,7 +24,7 @@ class MoviesIndex extends Component {
         return _.map(this.props.movies, movie => {
             return (
                 <Card key={ movie._id }>
-                    <CardImg top width="50%" height="400px" src={ movie.poster } alt="Movie Poster" />
+                    <CardImg top className="movie-card-img" src={ movie.poster } alt="Movie Poster" />
                     <CardBody>
                         <CardTitle>{ movie.title }</CardTitle>
                         <CardSubtitle>{ movie.year }</CardSubtitle>
