@@ -3,7 +3,9 @@ import MongoosePaginate from 'mongoose-paginate';
 
 const MovieSchema = mongoose.Schema({
     title: { type: String, required: true },
-    year: { type: Number, required: true }
+    year: { type: Number, required: true },
+    poster: { type: String, required: true },
+    plot: { type: String, required: true }
   }, {collection : 'movieDetails'});
 
 MovieSchema.plugin(MongoosePaginate);
