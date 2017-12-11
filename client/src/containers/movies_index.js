@@ -8,7 +8,7 @@ import { getMovies } from '../actions';
 class MoviesIndex extends Component {
 
     componentDidMount() {
-        this.props.getMovies();
+        this.props.getMovies(1);
     }
 
     renderMovies() {

@@ -2,8 +2,10 @@ import axios from 'axios';
 
 export const GET_MOVIES = 'GET_MOVIES';
 
-export const getMovies = () => {
-    const req = axios.get('http://localhost:3001/movies');
+const ROOT_URL = 'http://localhost:3001';
+
+export const getMovies = (page) => {
+    const req = axios.get(`${ROOT_URL}/movies?page=${page}`);
 
     return {
         type: GET_MOVIES,
