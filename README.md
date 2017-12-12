@@ -8,5 +8,6 @@ Starter Boilerplates used for this application: [express-es6-starter](https://gi
 - [x] Cards
 - [x] Search Box
 - [x] Pagination
+- [ ] Filtered Search
 
 ### Details Page
