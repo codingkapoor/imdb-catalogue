@@ -19,6 +19,7 @@ export default function(state = { movies: {}, hasMoreMovies: false, renderCount:
 
             // This property allows to reset the InfiniteScroll if last movies state is not the subset of latest movies state.
             // That is, every time search form is submitted.
+            // Refer: https://github.com/CassetteRocks/react-infinite-scroller/issues/12
             let renderCount = state.renderCount;
             if(!isSubset(movies, state.movies))
                 renderCount += 1;
