@@ -6,7 +6,7 @@ Starter Boilerplates used for this application: [express-es6-starter](https://gi
 
 ### Index Page
 - [x] Cards
-- [ ] Search Box
+- [x] Search Box
 - [x] Pagination
 
 ### Details Page
