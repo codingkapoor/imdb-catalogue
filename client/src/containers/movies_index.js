@@ -17,7 +17,7 @@ class MoviesIndex extends Component {
     }
 
     loadMovies(page) {
-        this.props.getMovies(page, this.props.q);
+        this.props.getMovies(page, this.props.searchTerm);
     }
 
     renderMovies() {
@@ -41,6 +41,7 @@ class MoviesIndex extends Component {
 
         return (
             <InfiniteScroll
+                key={ this.props.renderCount }
                 pageStart={ 0 }
                 loadMore={ this.loadMovies }
                 hasMore={ this.props.hasMoreMovies }
@@ -58,7 +59,8 @@ function mapStateToProps(state) {
     return {
         movies: state.moviesPerPage.movies,
         hasMoreMovies: state.moviesPerPage.hasMoreMovies,
-        q: state.moviesPerPage.q
+        searchTerm: state.moviesPerPage.searchTerm,
+        renderCount: state.moviesPerPage.renderCount
     };
 }
 
