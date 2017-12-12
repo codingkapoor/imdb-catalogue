@@ -1,22 +1,48 @@
 import mongoose from 'mongoose';
 import MongoosePaginate from 'mongoose-paginate';
 
-const MovieSchema = mongoose.Schema({
+const schema = mongoose.Schema({
     title: { type: String, required: true },
     year: { type: Number, required: true },
     poster: { type: String, required: true },
     plot: { type: String, required: true }
   }, {collection : 'movieDetails'});
 
-MovieSchema.plugin(MongoosePaginate);
+schema.plugin(MongoosePaginate);
+schema.index({ title: 'text' });
 
-const model = mongoose.model('movieDetails', MovieSchema);
+const model = mongoose.model('movieDetails', schema);
 
 
 const MovieModel = {};
 
-MovieModel.getMovies = (page) => {
-    return model.paginate({"poster": { $ne: null }}, { page: page, limit: 10, select: 'title year poster plot' });
+MovieModel.getMovies = (page, q) => {
+    if(q) {
+        return model.paginate(
+            {
+                $text: { $search: q },
+                "poster": { $ne: null }
+            },
+            {
+                page: page,
+                limit: 10,
+                select: { title: 1, year: 1, poster: 1, plot: 1, score: { $meta: "textScore" } },
+                sort: { score: { $meta: "textScore" } }
+            }
+        );
+    }
+    else {
+        return model.paginate(
+            {
+                "poster": { $ne: null }
+            },
+            {
+                page: page,
+                limit: 10,
+                select: { title: 1, year: 1, poster: 1, plot: 1 }
+            }
+        );
+    }
 }
 
 MovieModel.getMovieById = (movieId) => {

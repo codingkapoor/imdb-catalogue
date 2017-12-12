@@ -9,7 +9,7 @@ controller.getMovies = (req, res) => {
         page = req.query.page;
 
     try {
-        Movie.getMovies(page).then(movies => {
+        Movie.getMovies(page, req.query.q).then(movies => {
             logger.info('Getting all movies...');
             res.send(movies);
         });
