@@ -17,7 +17,7 @@ class MoviesIndex extends Component {
     }
 
     loadMovies(page) {
-        this.props.getMovies(page);
+        this.props.getMovies(page, this.props.q);
     }
 
     renderMovies() {
@@ -57,7 +57,8 @@ class MoviesIndex extends Component {
 function mapStateToProps(state) {
     return {
         movies: state.moviesPerPage.movies,
-        hasMoreMovies: state.moviesPerPage.hasMoreMovies
+        hasMoreMovies: state.moviesPerPage.hasMoreMovies,
+        q: state.moviesPerPage.q
     };
 }
 
