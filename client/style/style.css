@@ -1,3 +1,24 @@
 .movie-card-img {
     height: 300px !important;
 }
+
+.search-title {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-family: 'Special Elite', cursive;
+  font-weight: 400;
+  font-size: 48px;
+  text-align: center;
+}
+
+.search-bar {
+  margin-bottom: 40px;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-form button {
+  margin-left: 5px;
+}
