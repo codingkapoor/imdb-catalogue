@@ -6,12 +6,12 @@ const schema = mongoose.Schema({
     year: { type: Number, required: true },
     poster: { type: String, required: true },
     plot: { type: String, required: true }
-  }, {collection : 'movieDetails'});
+  }, {collection : 'movies'});
 
 schema.plugin(MongoosePaginate);
 schema.index({ title: 'text' });
 
-const model = mongoose.model('movieDetails', schema);
+const model = mongoose.model('movies', schema);
 
 
 const MovieModel = {};

@@ -7,7 +7,7 @@ config.logFileName = 'app.log';
 
 config.dbHost = process.env.dbHost || 'localhost';
 config.dbPort = process.env.dbPort || '27017';
-config.dbName = process.env.dbName || 'video';
+config.dbName = process.env.dbName || 'imdb-catalogue';
 
 config.serverPort = process.env.serverPort || 3001;
 
