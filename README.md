@@ -1,12 +1,28 @@
 # Catalogue for IMDB movies.
 
-## Init
+## Init database
 `mongoimport --db imdb-catalogue --collection movies --file movies.json`
 
-## Use
+<br/>
+
+## Install deps/ Launch@8080
+- Install server dependencies.
 `npm install`
 
+- Install client dependencies.
+`cd client`
+
+`npm install`
+
+- Start server
 `npm start`
+
+- Start client
+`cd client`
+
+`npm start`
+
+<br/>
 
 ## Credits
 Starter Boilerplates used for this application: [express-es6-starter](https://github.com/tomyitav/express-es6-starter) & [ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter).
@@ -23,5 +39,3 @@ Starter Boilerplates used for this application: [express-es6-starter](https://gi
 - [ ] Filtered Search
 
 ### Details Page
-
-### Initialize Data in DB
