@@ -6,23 +6,23 @@
 ## Install deps/ Launch@8080
 - Install server dependencies.
 
-`npm install`
+  `npm install`
 
 - Install client dependencies.
 
-`cd client`
+  `cd client`
 
-`npm install`
+  `npm install`
 
 - Start server
 
-`npm start`
+  `npm start`
 
 - Start client
 
-`cd client`
+  `cd client`
 
-`npm start`
+  `npm start`
 
 ## Credits
 Starter Boilerplates used for this application: [express-es6-starter](https://github.com/tomyitav/express-es6-starter) & [ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter).
