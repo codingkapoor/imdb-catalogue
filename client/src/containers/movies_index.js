@@ -42,7 +42,7 @@ class MoviesIndex extends Component {
         return (
             <InfiniteScroll
                 key={ this.props.renderCount }
-                pageStart={ 0 }
+                pageStart={ 1 }
                 loadMore={ this.loadMovies }
                 hasMore={ this.props.hasMoreMovies }
                 loader={ loader }>
