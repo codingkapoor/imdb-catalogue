@@ -1,9 +1,9 @@
 # Catalogue for IMDB movies.
 
-## Init database
+## Setup database
 `mongoimport --db imdb-catalogue --collection movies --file movies.json`
 
-## Install deps/ Launch@8080
+## Install deps & Launch@8080
 - Install server dependencies.
 
   `npm install`
