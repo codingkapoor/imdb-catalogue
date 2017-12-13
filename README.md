@@ -11,3 +11,5 @@ Starter Boilerplates used for this application: [express-es6-starter](https://gi
 - [ ] Filtered Search
 
 ### Details Page
+
+### Initialize Data in DB
