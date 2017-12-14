@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { GET_MOVIES } from '../actions';
+import { GET_MOVIES, GET_MOVIE_BY_ID } from '../actions';
 import isSubset from 'is-subset';
 
 export default function(state = { movies: {}, hasMoreMovies: false, renderCount: 0 }, action) {
@@ -25,6 +25,8 @@ export default function(state = { movies: {}, hasMoreMovies: false, renderCount:
                 renderCount += 1;
 
             return { movies, hasMoreMovies, searchTerm, renderCount };
+        case GET_MOVIE_BY_ID:
+            return { movie: action.payload.data };
         default:
             return state;
     }
