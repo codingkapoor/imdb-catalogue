@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import ReduxPromise from 'redux-promise';
 
 import MoviesIndex from './components/movies_index';
@@ -15,7 +15,7 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div className="row">
-                <h3 className="search-title col-lg-12">IMDB Catalogue</h3>
+                <Link className="search-title col-lg-12" to="/">IMDB Catalogue</Link>
                 <Switch>
                     <Route path="/movies/:id" component={ MovieDetails } />
                     <Route path="/movies" component={ MoviesIndex } />
