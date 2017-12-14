@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardColumns } from 'reactstrap';
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardColumns } from 'reactstrap';
 import InfiniteScroll from 'react-infinite-scroller';
+import { Link } from 'react-router-dom';
 
 import { getMovies } from '../actions';
 
@@ -22,14 +23,15 @@ class MoviesList extends Component {
 
     renderMovies() {
         return _.map(this.props.movies, movie => {
+            const id = `/movies/${movie._id}`;
             return (
                 <Card key={ movie._id }>
                     <CardImg top className="movie-card-img" src={ movie.poster } alt="Movie Poster" />
                     <CardBody>
                         <CardTitle>{ movie.title }</CardTitle>
                         <CardSubtitle>{ movie.year }</CardSubtitle>
-                        <CardText>{ movie.plot }</CardText>
-                        <Button>View More</Button>
+                        <br/>
+                        <Link className="btn btn-primary" to={ id }>View More</Link>
                     </CardBody>
                 </Card>
             );
