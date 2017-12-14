@@ -6,7 +6,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import { getMovies } from '../actions';
 
-class MoviesIndex extends Component {
+class MoviesList extends Component {
     constructor() {
         super();
         this.loadMovies = this.loadMovies.bind(this);
@@ -64,4 +64,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect (mapStateToProps, { getMovies })(MoviesIndex);
+export default connect (mapStateToProps, { getMovies })(MoviesList);
