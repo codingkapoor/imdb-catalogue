@@ -49,12 +49,4 @@ MovieModel.getMovieById = (movieId) => {
     return model.find({ _id: movieId });
 }
 
-MovieModel.addMovie = (movie) => {
-    return model.save();
-}
-
-MovieModel.deleteMovie = (movieId) => {
-    return model.remove({ _id: movieId });
-}
-
 export default MovieModel;

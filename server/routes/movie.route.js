@@ -10,12 +10,4 @@ router.get('/:_id', (req, res) => {
     movieController.getMovieById(req, res);
 });
 
-router.post('/', (req, res) => {
-    movieController.addMovie(req, res);
-});
-
-router.delete('/', (req, res) => {
-    movieController.deleteMovie(req, res);
-});
-
 export default router;
