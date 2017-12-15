@@ -18,7 +18,7 @@ class MovieDetails extends Component {
         const releaseDate = new Date(movie.released);
         return (
             <div className='movie-details'>
-                <img src={ movie.poster } className='movie-img' />
+                <img src={ movie.poster } className='movie-img col-lg-5' />
                 <Table striped>
                     <tbody>
                         <tr>
