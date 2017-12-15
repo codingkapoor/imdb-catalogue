@@ -30,6 +30,7 @@
 }
 
 .movie-details {
+    font-family: 'Barlow Semi Condensed', sans-serif;
     display: flex;
     width: 800px;
     margin-bottom: 50px;
