@@ -14,8 +14,10 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
-            <div className="row">
-                <Link className="search-title col-lg-12" to="/">IMDB Catalogue</Link>
+            <div>
+                <div className='row'>
+                    <Link className="search-title col-lg-12" to="/">IMDB Catalogue</Link>
+                </div>
                 <Switch>
                     <Route path="/movies/:id" component={ MovieDetails } />
                     <Route path="/movies" component={ MoviesIndex } />

@@ -5,7 +5,7 @@ import MoviesList from '../containers/movies_list';
 
 const MoviesIndex = () => {
     return (
-        <div>
+        <div className='row'>
             <SearchBar />
             <MoviesList />
         </div>
