@@ -28,7 +28,7 @@ class MoviesList extends Component {
                 <Card key={ movie._id }>
                     <CardImg top className="movie-card-img" src={ movie.poster } alt="Movie Poster" />
                     <CardBody>
-                        <CardTitle>{ movie.title }</CardTitle>
+                        <CardTitle className='movie-title'>{ movie.title }</CardTitle>
                         <CardSubtitle>{ movie.year }</CardSubtitle>
                         <br/>
                         <Link className="btn btn-primary" to={ id }>View More</Link>

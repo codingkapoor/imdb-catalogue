@@ -5,7 +5,7 @@
 .search-title {
   margin-top: 60px;
   margin-bottom: 20px;
-  font-family: 'Patua One', cursive;
+  font-family: 'Open Sans Condensed', cursive;
   font-weight: 100 !important;
   font-size: 48px;
   text-align: center;
@@ -23,6 +23,10 @@
 
 .search-form button {
   margin-left: 5px;
+}
+
+.movie-title {
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .movie-details {
